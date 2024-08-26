@@ -8,10 +8,14 @@ class Cards:
     card_naipe = ''
     card = ''
 
+    card_image = ''
+    flipped = False
+
     def create_card(self):
         self.card_name = rd.choice(self.card_list)
         self.card_naipe = rd.choice(self.naipe_list)
         self.card = f'{self.card_name.capitalize()} de {self.card_naipe.capitalize()}'
+        self.card_image = f'{self.card_name}_{self.card_naipe}'
 
     def get_info(self) -> dict:
         return {

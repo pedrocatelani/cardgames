@@ -1,9 +1,5 @@
-from games import Cards
+from ui import create_settings
 
-card = Cards
+create_settings()
 
-card.create_card(card)
-
-print(card.get_info(card))
-print(card.get_info_value(card))
 
