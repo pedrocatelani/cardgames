@@ -1,6 +1,8 @@
 from pathlib import Path
 import PySimpleGUI as sg
 
+from games import Cards
+
 def refresh_window(settings):
 
     theme = settings["GUI"]["default_theme"]
@@ -80,12 +82,19 @@ def main_window(settings):
         [sg.MenubarCustom(menu_bar_definition)],
         [sg.Text("Bem vindo ao Hub!",justification='center')],
         [sg.HorizontalSeparator()],
+        [sg.Image('',k='TEST')],
         [sg.HorizontalSeparator()],
+        [sg.Button('create',size=(10,1))]
     ]
 
     window = sg.Window("Card Games - House", layout_main)
     while True:
         event,values = window.read()
+
+        if event == 'create':
+            test = Cards
+            test.create_card(test)
+            window['TEST'].update(f'./_internal/cards_images/{test.card_image}.png')
 
         if event == 'Sobre':
             window.disappear()
